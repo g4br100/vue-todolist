@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>vue todolist</title>
+</head>
+<body>
+    <main id="app">
+        <h1>TO DO LIST</h1>
+        <div id="textbar">
+            <input type="text" placeholder="write text" v-model="ntsk" @keyup.enter="addtsk">
+            <button type="button" @click="addtsk">Add</button>
+        </div>
+        <div id="textadded">
+            <h3 v-if="items.lenght === 0">null</h3>
+            <ul>
+                <li v-for="(item, indice) in items" :class="item.status ? 'task-is-done':''" @click.stop="taskD(indice)">
+                    <span>{{item.text}}</span>
+                   <i class="fa-regular fa-circle-xmark" @click.stop="deltask"></i> 
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
